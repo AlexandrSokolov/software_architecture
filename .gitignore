@@ -1,5 +1,7 @@
 HELP.md
 target/
+# IntelliJ IDEA output
+/out/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
