@@ -1,3 +1,5 @@
+[Solution as a libary](https://docs.google.com/document/d/1XEw1diYo3T5J_T_cCXUGQDjmOB-9W3jzIGVx9to0Qmc/edit?tab=t.0)
+
 
 In software design, a "Single-Execution Monitor" (often referred to in the context of distributed systems or shell scripts) is a mechanism or pattern used to ensure that only one instance of a specific task or process runs at any given time.
 
