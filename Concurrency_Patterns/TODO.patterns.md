@@ -1,3 +1,7 @@
+### Work stealing algorithms
+
+Deque
+TransferQueue
 
 ### Single-Execution Monitor
 
