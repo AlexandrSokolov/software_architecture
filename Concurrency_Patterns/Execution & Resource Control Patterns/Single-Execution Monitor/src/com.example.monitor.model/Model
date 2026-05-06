@@ -1,0 +1,24 @@
+package com.example.monitor.model;
+
+import java.time.Instant;
+import java.util.List;
+
+public record Item(int id) {
+    // Easily extensible for future fields (payload, metadata, etc.)
+}
+
+public enum TaskStatus {
+    notStarted, isActive, isStopped, failed
+}
+
+public record FailedItem(String id, String reason) {}
+
+public record TaskStatsResponse(
+    TaskStatus status,
+    Instant startTime,
+    Instant completeTime,
+    int processedItems,
+    List<FailedItem> failedItems
+) {}
+
+public record BusyResponse(String status, String statisticsUrl) {}

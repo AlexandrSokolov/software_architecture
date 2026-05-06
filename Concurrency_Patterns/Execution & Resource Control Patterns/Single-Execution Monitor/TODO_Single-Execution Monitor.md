@@ -142,3 +142,24 @@ Reentrancy Risk: Since ReentrantLock is... well, reentrant, if your code acciden
 
 The "Crash" Scenario: In Java, if a thread holding a ReentrantLock dies or hangs indefinitely (e.g., a blocked I/O call without a timeout), that lock can become a "zombie." This is why I mentioned "Lease" patterns—they provide a "Self-Healing" mechanism that standard local locks lack.
 
+###
+
+You are perfectly clear, Alexander. You are describing the classic Scatter-Gather (or Fan-out/Fan-in) concurrency pattern, which we actually discussed earlier in the Aggregation & Coordination section!
+
+
+You want to "Scatter" the 3-8 Map entries to parallel subtasks, and "Gather" their completions before finally notifying the TaskMonitorService that the overarching job is done.
+
+Since you are embracing the Callback/Event-Driven architecture, we can do this without blocking any coordinating threads. We don't even need a CountDownLatch. We can use an AtomicInteger to track the remaining chunks. The very last subtask to finish will automatically trigger the Monitor's onComplete.
+
+Here is how you structure this cleanly:
+
+###
+
+⚠️ The "Senior Trap" to watch out for:
+If you decide to use @Async on the HeavyTaskExecutor AND @Async on the SubtaskExecutor, do not use the same thread pool for both if it is a small, fixed-size pool.
+
+If your Thread Pool has 4 threads, and HeavyTaskExecutor takes 1 thread to run and coordinate, and then asks for 8 threads for subtasks... you risk Thread Pool Starvation / Deadlock.
+
+By removing @Async from the HeavyTaskExecutor (as shown above) and only putting it on the SubtaskExecutor, the Tomcat HTTP thread simply drops off the 3-8 subtasks into the worker queue and returns 202 Accepted instantly. It's incredibly efficient.
+
+
