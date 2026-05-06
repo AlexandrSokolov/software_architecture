@@ -352,99 +352,11 @@ Workaround: Your tryLock() implementation is the textbook definition of this.
 A Recommendation for your "Senior" Library
 If you want a source that is Problem-Oriented and very high-level, I highly recommend checking out Refactoring.guru. They have a section on Behavioral Patterns that maps these abstract concepts to real-world code.
 
-Alex, the "Workaround" mindset is actually called "Design Trade-offs." In your current case, the tradeoff was: "I lose the ability to use Spring's internal proxy (the workaround), so I create a GenericAsyncProxy to regain control."
+Alex, the "Workaround" mindset is actually called "Design Trade-offs."
+In your current case, the tradeoff was: "I lose the ability to use Spring's internal proxy (the workaround), 
+so I create a GenericAsyncProxy to regain control."
 
 
-### I. Execution & Resource Control Patterns
-
-1. Balking PatternProblem: 
-An action should only execute if the object is in a specific state; if not (e.g., a job is already running),
-the request is simply ignored or "balked" at rather than queued.
-
-2. Guarded Suspension 
-
-Problem: You need to suspend the execution of a service until a specific condition is met 
-(e.g., waiting for a buffer to have data) before proceeding.
-
-3. Thread Pool (Resource Mapping)
-
-Problem: Creating threads is expensive. 
-You need to map a large number of tasks onto a limited, managed set of worker threads to prevent resource exhaustion.
-
-4. Throttling (Rate Limiting)
-
-Problem: A downstream system or resource can only handle $N$ concurrent requests. 
-You must limit the "concurrency depth" to prevent overwhelming the target.
-
-5. Scheduler / Delayed ExecutionProblem: A task needs to be executed not now, but at a specific time in the future, 
-or repeatedly at a fixed interval, independent of the caller’s lifecycle.
-
-### Decoupling & Messaging Patterns
-
-1. Active Object (The Coordinator/Executor)
-
-Problem: You want to decouple the "method invocation" (the call) from the "method execution" (the heavy work) so the caller doesn't hang while the work happens.
-
-2. Producer-Consumer (Pipe)
-
-Problem: Two parts of the system work at different speeds. You need a buffer to allow one to "produce" data and the other to "consume" it asynchronously.
-
-3. Future / Promise (Async Placeholder)
-
-Problem: You start a task and need a "claim check" or placeholder that will eventually hold the result, allowing you to do other work in the meantime.
-
-4. Reactor Pattern (Event-Driven)
-
-Problem: You need to handle thousands of concurrent connections using a very small number of threads by reacting to I/O events rather than blocking.
-
-5. Publish-Subscribe (Observer)Problem: One event occurs, and $N$ different parts of the system need to react to it concurrently without the "publisher" knowing who the "subscribers" are.
-
-
-### Aggregation & Coordination Patterns
-
-1. Scatter-Gather (Fan-out/Fan-in)
-
-Problem: You need to send a request to multiple providers (e.g., 5 different airline APIs) and wait for all of them to return (or timeout) before aggregating the final result.
-
-
-2. Barrier (Rendezvous)
-
-Problem: Multiple independent threads must all reach a specific point in their execution before any of them are allowed to proceed to the next phase.
-
-3. Latch (One-shot Trigger)
-
-Problem: One or more threads must wait for a specific set of operations to complete (e.g., system initialization) before they can start their work.
-
-4. Phaser (Cyclic Phases)
-
-Problem: A multi-step process where a variable number of threads must synchronize at the end of each step before starting the next.
-
-5. Leader Election
-
-Problem: In a clustered environment, you have a task that must only run on one node at a time. You need a way to coordinate which node is the "leader."
-
-### Resilience & Safety Patterns
-
-1. Circuit Breaker (Concurrent Failure Management)
-
-Problem: If a remote service is failing and many threads are waiting on it, you need to "trip the breaker" to prevent all your threads from getting stuck in a wait state.
-
-
-2. Bulkhead (Isolation)
-
-Problem: You want to ensure that a failure or heavy load in one part of the system (e.g., Invoicing) doesn't consume all threads and crash the rest of the system (e.g., Login).
-
-3. Double-Checked Locking
-
-Problem: You want to lazily initialize a shared resource only once, but you want to avoid the high cost of synchronization every time the resource is accessed after it's built.
-
-4. Thread-Local Storage (Context Isolation)
-
-Problem: You need to maintain "per-request" state (like a database transaction or security context) that is accessible everywhere in the code without passing it as a parameter through every method.
-
-5. Read-Write Splitting (Shared-Exclusive Lock)
-
-Problem: A resource is read frequently but updated rarely. You want to allow infinite concurrent "readers" but ensure "writers" get exclusive access.
 
 ### Books
 

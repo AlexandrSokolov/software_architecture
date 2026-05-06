@@ -1,3 +1,10 @@
+### the "Programming 101"
+
+geminit mentioned it:
+
+It’s great to connect with a senior engineer. Since you’re coming from a Java background, 
+we can skip the "Programming 101" and get into the architectural weeds.
+
 ### the classic Request DTO vs Response DTO problem
 
 public class UserDto {
