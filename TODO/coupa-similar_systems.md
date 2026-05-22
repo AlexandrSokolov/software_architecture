@@ -61,3 +61,15 @@ Reusability. The same integration endpoints can be consumed by other workflows �
 Observability and error handling. The integration layer logs every call, retries transient failures, and alerts on degraded health. The browser can't do any of that reliably.
 So the middle layer is acting as a backend-for-frontend and API gateway — not a data store. Nothing persists between request and response. It's a pass-through that handles credentials, shaping, reuse, and operations.
 When would direct browser-to-System-B be acceptable? Only if all five conditions reverse: per-user OAuth with short-lived tokens (no shared secret to protect), CORS-enabled and browser-friendly API on System B's side, single-call operations with no orchestration, no other consumers planned, and no operational requirements beyond what client-side telemetry provides. In practice that combination is rare for enterprise SaaS integrations.
+
+
+When Direct Calls Are Acceptable
+The graph also tells you the negative answer cleanly: direct browser-to-System-B is acceptable only when every fork resolves to the left-hand branch. Specifically:
+
+A1a: per-user OAuth with short-lived tokens (no shared secret to protect)
+A2a: CORS-enabled, browser-friendly auth on System B
+A3a: single-call operations with no orchestration
+A4a: no other consumers planned, ever
+A5a: no operational requirements beyond client telemetry
+
+If even one fork goes right, the middle layer is justified. In practice all five going left is rare for enterprise SaaS integrations — which is why the pattern is so common.
