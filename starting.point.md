@@ -68,6 +68,17 @@ The holistic blueprint: the "glue" between services, synchronous RPC vs asynchro
 integration.
 * Covered: event-driven architecture, orchestration vs choreography, API gateways (scatter-gather hubs).
 
+### Companion to Group 3 — Designing Distributed Systems — Brendan Burns  *(optional, light read)*
+The *deployment/composition* lens: reusable container patterns for arranging distributed systems on
+Kubernetes — the physical counterpart to Richardson's and Newman's logical service design. Short and
+readable, not a deep-learning commitment.
+* Covered: single-node patterns (sidecar, ambassador, adapter); multi-node patterns (replicated-
+  load-balanced, scatter-gather, **work-queue**).
+* **Why here, not in the priority path:** it's framed around containers/orchestration, not messaging
+  or data guarantees — it assumes the layer Groups 1–2 teach. Its scatter-gather and work-queue
+  chapters touch your task-distribution interest, but at the *infrastructure* altitude, so read it as
+  a practical bridge into composing/deploying microservices, after Groups 1–2.
+
 ---
 
 ## Group 4 — Single-Machine Concurrency  *(optional / wish · 2 books)*
