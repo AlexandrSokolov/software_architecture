@@ -18,6 +18,47 @@ The *why*. Partitioning, replication, consistency, delivery semantics, the trade
 rigorous, vendor-neutral problem-model you can get. Get the 2026 2nd edition, not the 2017 first.
 * Covered: append-only logs, sharding, replication, event sourcing, NoSQL-vs-relational trade-offs.
 
+#### DDIA 2nd Edition — Full ToC + Folder Mapping
+
+---
+
+##### Part I — Data Systems Foundations (Ch. 1–5)
+
+| Ch | Title                                   | Target Folder                        |
+|----|-----------------------------------------|--------------------------------------|
+| 1  | Trade-offs in Data Systems Architecture | `Data_Modeling_and_Storage_Patterns` |
+| 2  | Defining Nonfunctional Requirements     | `Data_Modeling_and_Storage_Patterns` |
+| 3  | Data Models and Query Languages         | `Data_Modeling_and_Storage_Patterns` |
+| 4  | Storage and Retrieval                   | `Data_Modeling_and_Storage_Patterns` |
+| 5  | Encoding and Evolution                  | `Data_Modeling_and_Storage_Patterns` |
+
+---
+
+##### Part II — Distributed Data (Ch. 6–10)
+
+| Ch | Title                                | Target Folder                                          |
+|----|--------------------------------------|--------------------------------------------------------|
+| 6  | Replication                          | `Enterprise_Integration_Patterns_EIP/Distributed_Data` |
+| 7  | Partitioning (Sharding)              | `Enterprise_Integration_Patterns_EIP/Distributed_Data` |
+| 8  | Transactions                         | `Enterprise_Integration_Patterns_EIP/Distributed_Data` |
+| 9  | The Trouble with Distributed Systems | `Enterprise_Integration_Patterns_EIP/Distributed_Data` |
+| 10 | Consistency and Consensus            | `Enterprise_Integration_Patterns_EIP/Distributed_Data` |
+
+---
+
+##### Part III — Derived Data (Ch. 11–14)
+
+| Ch | Title                           | Target Folder                                                   |
+|----|---------------------------------|-----------------------------------------------------------------|
+| 11 | Batch Processing                | `Enterprise_Integration_Patterns_EIP/Event_Driven_Architecture` |
+| 12 | Stream Processing               | `Enterprise_Integration_Patterns_EIP/Event_Driven_Architecture` |
+| 13 | Philosophy of Streaming Systems | `Enterprise_Integration_Patterns_EIP/Event_Driven_Architecture` |
+| 14 | Doing the Right Thing           | `Enterprise_Integration_Patterns_EIP/Event_Driven_Architecture` |
+
+---
+
+### Recommended Folder Structure
+
 ### 2. Enterprise Integration Patterns — Hohpe & Woolf
 The *vocabulary*. The named patterns for split / distribute / collect, and the bible under every
 integration tool (Camel, Spring Integration, MuleSoft, Workato).
