@@ -24,13 +24,13 @@ rigorous, vendor-neutral problem-model you can get. Get the 2026 2nd edition, no
 
 ##### Part I — Data Systems Foundations (Ch. 1–5)
 
-| Ch | Title                                   | Target Folder                        |
-|----|-----------------------------------------|--------------------------------------|
-| 1  | Trade-offs in Data Systems Architecture | `Data_Modeling_and_Storage_Patterns` |
-| 2  | Defining Nonfunctional Requirements     | `Data_Modeling_and_Storage_Patterns` |
-| 3  | Data Models and Query Languages         | `Data_Modeling_and_Storage_Patterns` |
-| 4  | Storage and Retrieval                   | `Data_Modeling_and_Storage_Patterns` |
-| 5  | Encoding and Evolution                  | `Data_Modeling_and_Storage_Patterns` |
+| Ch | Title                                   | Target Folder (under `Data_Systems/`)   |
+|----|-----------------------------------------|-----------------------------------------|
+| 1  | Trade-offs in Data Systems Architecture | `1_Data_System_Architecture`            |
+| 2  | Defining Nonfunctional Requirements     | `1_Data_System_Architecture`            |
+| 3  | Data Models and Query Languages         | `2_Data_Modeling`                       |
+| 4  | Storage and Retrieval                   | `3_Storage_and_Retrieval`               |
+| 5  | Encoding and Evolution                  | `4_Data_Encoding_and_Serialization`     |
 
 ---
 
