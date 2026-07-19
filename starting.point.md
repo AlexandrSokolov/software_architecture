@@ -109,6 +109,23 @@ The holistic blueprint: the "glue" between services, synchronous RPC vs asynchro
 integration.
 * Covered: event-driven architecture, orchestration vs choreography, API gateways (scatter-gather hubs).
 
+### Companion to Group 3 — Release It! Design and Deploy Production-Ready Software — Michael Nygard
+(2nd ed., 2018), from the O'Reilly ToC
+The *runtime-resilience* lens: how a running distributed system survives — or fails to survive — real
+production load. **Not only about how to release and deploy** (that's only Parts III–IV); the core
+(Parts I–II) is the resilience of a live system under stress — the failure modes one slow or dead
+service inflicts on the rest, and the patterns that contain them. The origin of the Circuit Breaker
+pattern. Widely regarded as one of the top must-read books for architects.
+* Covered: stability antipatterns (integration points, cascading failures, blocked threads, slow
+  responses, dogpile); stability patterns (**Circuit Breaker, Bulkheads, Timeouts, Shed Load,
+  Back Pressure, Fail Fast, Governor**); interconnect (load balancing, demand control, discovery).
+* **Why here:** it's the resilience counterpart to Newman — Newman is *how services talk*, Release It!
+  is *how to stop one service's failure from taking down the rest*. Those failure modes only become
+  real once services communicate across a network, so it assumes the messaging/event models of Groups
+  1–2. It also fills a gap DDIA leaves: DDIA Ch. 8–9 *name* the distributed-failure problems; Release
+  It! gives the *patterns* that answer them. Not a light read like Burns — a core book at the
+  application-resilience altitude.
+
 ### Companion to Group 3 — Designing Distributed Systems — Brendan Burns  *(optional, light read)*
 The *deployment/composition* lens: reusable container patterns for arranging distributed systems on
 Kubernetes — the physical counterpart to Richardson's and Newman's logical service design. Short and
@@ -119,6 +136,7 @@ readable, not a deep-learning commitment.
   or data guarantees — it assumes the layer Groups 1–2 teach. Its scatter-gather and work-queue
   chapters touch your task-distribution interest, but at the *infrastructure* altitude, so read it as
   a practical bridge into composing/deploying microservices, after Groups 1–2.
+
 
 ---
 
