@@ -5,22 +5,27 @@ Chapter list: [DDIA_TOC.md](DDIA_TOC.md). Folder layout: [Software_Architecture_
 
 ## 1. Chapter → folder
 
-| Ch. | Title                                   | Folder                                                                                                |
-|-----|-----------------------------------------|-------------------------------------------------------------------------------------------------------|
-| 1   | Trade-Offs in Data Systems Architecture | `03_Data_Systems/1_Data_System_Architecture/`                                                         |
-| 2   | Defining Nonfunctional Requirements     | `03_Data_Systems/2_Nonfunctional_Requirements/`                                                       |
-| 3   | Data Models and Query Languages         | `03_Data_Systems/3_Data_Modeling/` (top level, DDIA core)                                             |
-| 4   | Storage and Retrieval                   | `03_Data_Systems/4_Storage_and_Retrieval/`                                                            |
-| 5   | Encoding and Evolution                  | `03_Data_Systems/5_Encoding_and_Evolution/`                                                           |
-| 6   | Replication                             | `04_Distributed_Data/6_Replication/`                                                                  |
-| 7   | Sharding                                | `04_Distributed_Data/7_Partitioning/`                                                                 |
-| 8   | Transactions                            | `04_Distributed_Data/8_Transactions/`                                                                 |
-| 9   | The Trouble with Distributed Systems    | `04_Distributed_Data/9_Trouble_with_Distributed_Systems/`                                             |
-| 10  | Consistency and Consensus               | `04_Distributed_Data/10_Consistency_and_Consensus/`                                                   |
-| 11  | Batch Processing                        | `05_Integration_and_Event_Driven/3_Batch_and_Stream_Processing/`                                      |
-| 12  | Stream Processing                       | `05_Integration_and_Event_Driven/3_Batch_and_Stream_Processing/`                                      |
-| 13  | A Philosophy of Streaming Systems       | `05_Integration_and_Event_Driven/` — [split by section](#2-sections-that-leave-their-chapters-folder) |
-| 14  | Doing the Right Thing                   | No folder — ethics and privacy are not in the structure                                               |
+| Ch. | Title                                                                                                     | Folder                                                                                                |
+|-----|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| 1   | Trade-Offs in Data Systems Architecture                                                                   | `03_Data_Systems/1_Data_System_Architecture/`                                                         |
+| 2   | Defining Nonfunctional Requirements                                                                       | `03_Data_Systems/2_Nonfunctional_Requirements/`                                                       |
+| 3   | Data Models and Query Languages                                                                           | `03_Data_Systems/3_Data_Modeling/` (top level, DDIA core)                                             |
+| 4   | Storage and Retrieval                                                                                     | `03_Data_Systems/4_Storage_and_Retrieval/`                                                            |
+| 5   | Encoding and Evolution                                                                                    | `03_Data_Systems/6_Encoding_and_Evolution/`                                                           |
+| 6   | Replication                                                                                               | `04_Distributed_Data/6_Replication/`                                                                  |
+| 7   | Sharding                                                                                                  | `04_Distributed_Data/7_Partitioning/`                                                                 |
+| 8   | Transactions — first half (277–322), single-node                                                          | `03_Data_Systems/5_Transactions/`                                                                     |
+| 8   | Transactions — distributed half: Two-Phase Commit (324), Database-Internal Distributed Transactions (333) | `04_Distributed_Data/8_Distributed_Transactions/`                                                     |
+| 9   | The Trouble with Distributed Systems                                                                      | `04_Distributed_Data/9_Trouble_with_Distributed_Systems/`                                             |
+| 10  | Consistency and Consensus                                                                                 | `04_Distributed_Data/10_Consistency_and_Consensus/`                                                   |
+| 11  | Batch Processing                                                                                          | `05_Integration_and_Event_Driven/3_Batch_and_Stream_Processing/`                                      |
+| 12  | Stream Processing                                                                                         | `05_Integration_and_Event_Driven/3_Batch_and_Stream_Processing/`                                      |
+| 13  | A Philosophy of Streaming Systems                                                                         | `05_Integration_and_Event_Driven/` — [split by section](#2-sections-that-leave-their-chapters-folder) |
+| 14  | Doing the Right Thing                                                                                     | No folder — ethics and privacy are not in the structure                                               |
+
+In `03_Data_Systems/` the folder order follows the topic, not the chapter number: 3–5 are the database itself
+(shape, storage, concurrent changes), 6 is data moving between systems. So Ch. 8's first half sits in
+`5_Transactions/` and Ch. 5 in `6_Encoding_and_Evolution/`. In `04_Distributed_Data/` folder number = chapter number.
 
 `01_Code_Design/` and `02_Application_Architecture/` get nothing from DDIA. `06_Architecture_Traps/` is built from
 combinations of the folders above, never from one chapter.
@@ -49,14 +54,15 @@ The folder follows the topic, not the chapter. These sections are filed where th
 
 ## 3. Interview order
 
-Tuned for the senior Java developer role first. Architect notes at the end.
+Tuned for the senior Java developer role first. Architect notes at the end. This order is the plan and changes with
+the role; the folder numbers above are the map and stay fixed.
 
 | #  | Chapter                                           | Read                                                                                                                                                                                                                                                          | Why it gets asked                                                                                                                                                              |
 |----|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Ch. 2 Nonfunctional Requirements                  | Home Timelines case study (34), Latency and Response Time (38), Average, Median, and Percentiles (40), Fault Tolerance (43), Understanding Load (50), Shared-Nothing (51). Skim Maintainability (52).                                                         | Every system design answer starts here: p99 vs the mean, load, scaling, fan-out on write vs on read.                                                                           |
 | 2  | Ch. 8 Transactions — first half (277–322)         | The Meaning of ACID (279), Read Committed (290), Snapshot Isolation (293), Preventing Lost Updates (299), Write Skew and Phantoms (303), Two-Phase Locking (313) vs Serializable Snapshot Isolation (317).                                                    | Isolation levels, lost updates, optimistic vs pessimistic locking — the theory behind `@Transactional` and `@Version`.                                                         |
 | 3  | Ch. 4 Storage and Retrieval — OLTP half (116–134) | Log-Structured Storage (118), B-Trees (125), Comparing B-Trees and LSM-Trees (129), Multicolumn and Secondary Indexes (132), Storing Values Within the Index (133). Skip the analytics half (134+) unless the role is analytics.                              | "Why is this query slow", how an index works, B-tree vs LSM-tree, composite and covering indexes.                                                                              |
-|    | **Milestone 1 — Java database round**             |                                                                                                                                                                                                                                                               | You can handle database-depth questions: ORM, indexes, isolation levels, locking.                                                                                              |
+|    | **Milestone 1 — Java database round**             |                                                                                                                                                                                                                                                               | You can handle database-depth questions: indexes, isolation levels, locking — including the ORM traps behind them (lost updates from read-modify-write, `@Version`).           |
 | 4  | Ch. 3 Data Models                                 | Object-Relational Mismatch (68), Normalization, Denormalization, and Joins (72), Many-to-One and Many-to-Many (75), When to Use Which Model (80). Event Sourcing and CQRS (101) if the role is event-driven. Graph query languages (88–98): awareness only.   | SQL vs NoSQL, embedding vs joins, when joins stop working.                                                                                                                     |
 | 5  | Ch. 6 Replication                                 | Synchronous Versus Asynchronous Replication (200), Problems with Replication Lag (209), Solutions for Replication Lag (214), Dealing with Conflicting Writes (222). Skim Leaderless (229): quorum `w + r > n` and why it is not enough.                       | Read replicas, lag bugs, read-your-writes, monotonic reads.                                                                                                                    |
 | 6  | Ch. 7 Sharding                                    | Sharding by Key Range (256) vs by Hash of Key (258), Skewed Workloads and Relieving Hot Spots (263), Local (268) vs Global Secondary Indexes (270). Skim Multitenancy (254), Request Routing (265).                                                           | Hash vs range, hot keys, reads that must ask every shard (scatter/gather).                                                                                                     |
