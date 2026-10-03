@@ -1,3 +1,40 @@
+### TODO - compare both versions of the same scenariou - next 2 cards
+
+### Compute percentiles from timings
+<details><summary><strong>Show details</strong></summary>
+
+<details><summary>Show scenario</summary>
+
+1,000 request timings, sorted ascending:
+- positions 1–950 → near **100 ms**
+- positions 951–1000 → between **2 s and 10 s**
+
+Find p50, p99, and p999. Show the position each one lands on, and the value there.
+
+</details>
+
+<details><summary>Show answer</summary>
+
+- **Step 1 — percentile → position:** `rank = ceil(P/100 × N)`, N = 1000 (`ceil` = round up).
+- **Step 2 — position → value:** read the sorted list at that position.
+
+|      | Position                 | Lands in           | Value   |
+|------|--------------------------|--------------------|---------|
+| p50  | ceil(0.50 × 1000) = 500  | fast block (1–950) | ~100 ms |
+| p99  | ceil(0.99 × 1000) = 990  | slow block         | ≈ 8.4 s |
+| p999 | ceil(0.999 × 1000) = 999 | slow block         | ≈ 9.8 s |
+
+**Value inside the slow block:** we only know its 50 requests lie between 2 s and 10 s, so assume they are spread
+evenly — 8 s over 49 gaps, 8/49 s per position:
+- p99: position 990 is 39 above 951 → 2 + 39 × 8/49 ≈ **8.4 s**.
+- p999: position 999 is 48 above 951 → 2 + 48 × 8/49 ≈ **9.8 s**.
+
+Higher percentile → further into the slow block → bigger number.
+
+</details>
+
+</details>
+
 ### Compute percentiles from timings
 <details><summary><strong>Show details</strong></summary>
 
