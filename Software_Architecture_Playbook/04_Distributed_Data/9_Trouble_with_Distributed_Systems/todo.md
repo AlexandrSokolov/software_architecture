@@ -1,0 +1,2 @@
+Lock in Redis: SET lock:job42 <id> NX PX 30000 means one client gets the key, and it expires after 30 s in case the holder dies. The trap: the holder freezes longer than 30 s (a GC pause), the lock expires, a second client takes it, and both act. The fix lives outside Redis: a fencing token, an increasing number the storage checks.
+Lock → keep in 04/9. The same failure happens with ZooKeeper or etcd, and the fix sits in the storage, not in Redis. At most, one link from 3.4.05.

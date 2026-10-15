@@ -1,3 +1,16 @@
+# LSM-Trees — Internals (deprecated)
+
+**Status.** Not part of regular review. Choosing an LSM engine is covered in
+[Choosing an Engine](3.4.02_Choosing_an_Engine.md).
+
+**Why kept.** These cards show how an append-only engine is built: a hash index over a log, segments, compaction,
+tombstones, SSTables with sparse indexes, the memtable, Bloom filters, compaction strategies. None of it changes an
+architecture decision, but the ideas are reused widely:
+- append-only log plus compaction — Kafka compacted topics, snapshots in event sourcing;
+- tombstones — deletes in any system that never overwrites data (Kafka, Cassandra, sync engines);
+- Bloom filter — a cheap "definitely not here" check before a costly lookup (caches, web crawlers, CDNs);
+- merging sorted files — sorting data bigger than memory (external merge sort, batch jobs).
+
 ### What is log-structured storage?
 <details><summary>Show answer</summary>
 

@@ -1,3 +1,15 @@
+# B-Trees — Internals (deprecated)
+
+**Status.** Not part of regular review. Choosing and using a B-tree is covered in
+[Choosing an Engine](3.4.02_Choosing_an_Engine.md) and [Index Design](3.4.04_Index_Design.md).
+
+**Why kept.** These cards go one level deeper — how the tree is built and kept correct: page splits and merges, the
+WAL for crash safety, latches for many threads, copy-on-write trees. None of it changes an architecture decision, but
+the ideas show up far outside databases:
+- write-ahead log — any system that must survive a crash in the middle of a change (message brokers, file systems);
+- copy-on-write — Git commits, ZFS and Btrfs snapshots, immutable collections;
+- short locks on small parts of a shared structure — concurrent data structures in any language.
+
 ### B-trees — which problems, which fixes?
 <details><summary>Show answer</summary>
 
@@ -320,36 +332,5 @@ Most databases that say "B-tree" actually use a **B+ tree**:
   - values only in leaf pages; inner pages hold only keys and pointers → more keys per page, fewer levels;
   - inner pages can keep keys shortened — only enough of each key to tell two ranges apart → even more keys per page;
   - each leaf page points to its neighbour → a range scan walks along the leaves without climbing back up.
-
-</details>
-
-### Random primary keys slow inserts — why?
-<details><summary>Show answer</summary>
-
-- **Sequential keys** (auto-increment) — every insert goes to the rightmost leaf page; that page stays in memory,
-  fills up, splits once, and the next page takes over.
-- **Random keys** (UUID v4) — every insert hits a random leaf page:
-  - that page is often not in memory → a disk read before the write;
-  - splits happen all over the tree and leave many pages half empty → the index grows bigger and slower.
-- **Fix:** time-ordered IDs — **UUID v7** (RFC 9562, 2024) starts with a timestamp, so new keys land near the end like
-  auto-increment and stay unique across machines.
-- **Worst on:** databases where the table itself is sorted by primary key (MySQL InnoDB) — whole rows move with the
-  splits.
-
-</details>
-
-### Rows deleted, index didn't shrink — why?
-<details><summary>Show answer</summary>
-
-Deleting rows removes their keys, but the pages stay — partly empty pages remain part of the index.
-
-- **PostgreSQL:**
-  - VACUUM removes dead entries but doesn't merge half-empty pages, so the index file doesn't get smaller;
-  - freed space is reused only by keys in the same key range — delete old timestamps, insert ever-higher new ones,
-    and the index keeps growing;
-  - fix: rebuild it with `REINDEX` (`REINDEX ... CONCURRENTLY` to avoid blocking writes).
-- **MySQL InnoDB:** merges a page with its neighbour when it drops below half full (`MERGE_THRESHOLD`, default 50%).
-
-A B-tree grows on its own through splits; shrinking needs page merging or a rebuild.
 
 </details>

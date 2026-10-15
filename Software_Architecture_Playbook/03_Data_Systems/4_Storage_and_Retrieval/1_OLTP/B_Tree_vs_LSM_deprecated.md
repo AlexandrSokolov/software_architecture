@@ -1,3 +1,13 @@
+# B-Tree vs LSM-Tree — Axis by Axis (deprecated)
+
+**Status.** Not part of regular review. The comparison in one card, plus the scenarios, now lives in
+[Choosing an Engine](3.4.02_Choosing_an_Engine.md).
+
+**Why kept.** These cards take the comparison apart one axis at a time — write speed, read speed, disk space,
+response times, heavy write load, locking — and explain write amplification and sequential vs random disk writes.
+Both ideas reach beyond databases: SSD wear, log-based file systems, and any design that batches many small writes
+into one big one.
+
 ### B-tree vs LSM-tree — trade-offs?
 <details><summary>Show answer</summary>
 
