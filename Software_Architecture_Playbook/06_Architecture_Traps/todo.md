@@ -25,4 +25,8 @@ network timeout or crash), your systems are permanently out of sync. Fixing this
 
 </details>
 
+## 
 
+Cache patterns (cache-aside, stampede, stale cache) go to 06_Architecture_Traps.
+
+##
