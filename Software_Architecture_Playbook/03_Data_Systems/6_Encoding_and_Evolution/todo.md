@@ -1,3 +1,23 @@
+## todo discussion
+
+**What "deploy order" means.** When you change a format, the writer and the reader can't both switch at the same instant. One goes first, and during the gap one side is old and the other is new. Which side goes first decides which direction must work in that gap:
+
+- **Readers first.** New readers see old data for a while, so you need **backward**. Once all readers are new, the writers start sending the new format.
+- **Writers first.** Old readers see new data, so you need **forward**.
+- **Both directions guaranteed.** Order doesn't matter.
+
+Two concrete cases:
+- **Kafka event gets a new field.** Upgrade consumers first, so they handle the field being there or not. Then producers start sending it. Schema Registry enforces this through its mode: `BACKWARD` (the default) allows only changes where consumers can go first, `FORWARD` only changes where producers can go first, and `FULL` allows either. Teams get bitten when the mode is `BACKWARD` and they deploy the producer first.
+- **REST response gets a new field.** The server goes first, and old clients must ignore the field (forward). If you want clients to send a new request field, the server must first accept requests without it (backward); only then do clients start sending it.
+
+**Where it belongs.** It's the practical side of "Backward vs forward": knowing the direction tells you which side to deploy first. In fact, "API calls — which compatibility where?" is already a deploy-order card for REST without saying so. Its last line is "servers are usually deployed first".
+
+So there are two homes:
+- **3.6.1**, as a general card right after "Backward vs forward", covering APIs and events.
+- **3.6.3**, rewriting "API calls — which compatibility where?" into this card.
+
+I'd pick 3.6.1, since the rule is the same for any writer and reader.
+
 ## Claude
 
 All of these go to `3.6.1_Evolution_&_Encoding_Formats.md`, in cluster 1 (Root: compatibility).

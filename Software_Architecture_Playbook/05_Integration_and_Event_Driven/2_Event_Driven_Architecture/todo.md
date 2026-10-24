@@ -1,3 +1,13 @@
+## 
+
+### What is an event-driven architecture?
+<details><summary>Show answer</summary>
+
+Services talk by sending messages (events) through a broker. The sender encodes a message, hands it to the broker,
+and doesn't wait; the broker stores it and delivers it to the recipients, which decode it.
+
+</details>
+
 ## Gemini 1
 
 check if the next 4 cards do not belong to 6_Encoding_and_Evolution
