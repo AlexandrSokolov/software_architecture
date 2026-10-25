@@ -111,6 +111,19 @@ That mixed reading order with filing. Here are strict lists, where each section 
 3. Ch. 12 — Change Data Capture (503)
 4. Ch. 5 — Durable Execution and Workflows (187)
 
+- **Read first:** Ch. 1 — Problems with Distributed Systems (20), 
+- Systems of Record and Derived Data (10) → `03_Data_Systems/1_Data_System_Architecture`. 
+- Ch. 12 — Keeping Systems in Sync (501) → `06_Architecture_Traps`. 
+- Ch. 6 — Implementation of Replication Logs (206) → `04_Distributed_Data/6_Replication`.
+
+- **Then:** Ch. 1 — Microservices and Serverless (21). 
+- Ch. 5 — Durable Execution and Workflows (187). 
+
++ - Why split into services and what it costs. 
+- DB and broker in one commit (XA) and why teams avoid it — the ground for saga vs 2PC. 
+- CDC: the app writes to the DB once, and the broker gets the change from the DB's log. 
+- Workflows that continue after a crash mid-process.                                                                               |
+
 `05_Integration_and_Event_Driven/2_Event_Driven_Architecture`
 
 1. Ch. 5 — Event-Driven Architectures (189)
@@ -124,12 +137,13 @@ That mixed reading order with filing. Here are strict lists, where each section 
 1. Ch. 12 — Log-Based Message Brokers (495)
 2. Ch. 8 — Exactly-Once Message Processing Revisited (334)
 3. Ch. 13 — The End-to-End Argument for Databases (562)
-4. Ch. 12 — Uses of Stream Processing (514)
-5. Ch. 12 — Reasoning About Time (518)
-6. Ch. 12 — Stream Joins (523), skim
-7. Ch. 12 — Fault Tolerance (526)
-8. Ch. 13 — Enforcing Constraints (566), Timeliness and Integrity (571), Trust, but Verify (575), skim
-9. Ch. 11 — Batch Processing, summary only
+4. Ch. 12 — Change Data Capture (503).
+5. Ch. 12 — Uses of Stream Processing (514)
+6. Ch. 12 — Reasoning About Time (518)
+7. Ch. 12 — Stream Joins (523), skim
+8. Ch. 12 — Fault Tolerance (526)
+9. Ch. 13 — Enforcing Constraints (566), Timeliness and Integrity (571), Trust, but Verify (575), skim
+10. Ch. 11 — Batch Processing, summary only
 
 `04_Distributed_Data/9_Trouble_with_Distributed_Systems`
 
