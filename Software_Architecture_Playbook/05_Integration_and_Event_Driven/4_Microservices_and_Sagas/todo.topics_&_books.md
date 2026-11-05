@@ -27,13 +27,13 @@ Here's how I'd group it. ★ marks topics that come up often in interviews; that
 - API composition — Richardson
 - CQRS read models — Richardson, DDIA (cards in `2_Event_Driven_Architecture`)
 
-**5. Resilience** → `5_Resilience_and_Observability`
+**5. Resilience** → `5_Observability_and_Tracing`
 - ★ Timeouts, retries with backoff — Nygard, Newman
 - ★ Circuit breaker — Nygard, Richardson
 - ★ Cascading failures — Nygard
 - Bulkhead, rate limiting, load shedding — Nygard
 
-**6. Observability** → `5_Resilience_and_Observability`
+**6. Observability** → `5_Observability_and_Tracing`
 - ★ Distributed tracing, correlation IDs — Newman, Richardson
 - Health checks: liveness vs readiness — Richardson
 - Log aggregation, metrics — Newman
@@ -64,7 +64,7 @@ Merged and sorted by interview popularity. The popularity labels are Gemini's sc
 - Topics: the dual-write problem; transactional outbox; CDC and log tailing (Debezium); idempotent consumer
 - Books: Richardson, DDIA, Hohpe & Woolf
 
-**3. Resilience** — very high → `5_Resilience_and_Observability`
+**3. Resilience** — very high → `5_Observability_and_Tracing`
 - Topics: cascading failures; timeouts and timeout budgets; retries with backoff and jitter; circuit breaker; bulkhead; rate limiting; load shedding
 - Books: Nygard, Richardson, Newman
 
@@ -90,7 +90,7 @@ Merged and sorted by interview popularity. The popularity labels are Gemini's sc
 - Topics: API composition; CQRS read models; GraphQL federation; N+1 calls across services
 - Books: Richardson, Newman; Giroux, *Production-Ready GraphQL*
 
-**9. Observability** — medium → `5_Resilience_and_Observability`
+**9. Observability** — medium → `5_Observability_and_Tracing`
 - Topics: distributed tracing and correlation IDs; central logging; metrics; liveness vs readiness checks
 - Books: Newman, Richardson; Google's *Site Reliability Engineering*
 
