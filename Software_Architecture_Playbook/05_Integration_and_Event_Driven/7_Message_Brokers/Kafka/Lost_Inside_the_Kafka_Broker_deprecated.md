@@ -1,3 +1,5 @@
+## todo - check befor deleting that all topics and cards are covered and exist int he acutal file
+
 ## Lost Messages Questions
 <details><summary>Show questions</summary>
 
@@ -13,33 +15,6 @@
 
 </details>
 
-### Kafka broker — architecture?
-<details><summary>Show answer</summary>
-
-Kafka has two architectural levels:
-
-- **Outside — Producers & Consumers.** Your services use Kafka. A **producer** sends a message to a topic 
-  ("order updated"); **consumers** pull it. To your code the broker looks like one thing.
-  - **Goal:** Decouple external microservices and enable asynchronous communication.
-  - **Questions:** who gets the message, duplicates, order, consumer groups.
-- **Inside — the cluster (leader & followers).**
-  It works like a distributed database: each partition is stored on several machines (brokers).
-  One broker is the **leader** of the partition; the other brokers are **followers**: they copy from the leader.
-  The client library finds the leader itself: the producer writes to it, and consumers read from it too (by default).
-  - **Goal:** Data durability and High Availability of the broker itself.
-  - **Questions:** a broker died — is the message safe, and can producers still write?
-
-Where the levels meet:
-
-- The producer writes to the leader, and consumers read from the leader too (by default).
-- A consumer sees a message only after every in-sync follower (one that keeps up with the leader) has copied it, 
-  so it never reads a message that a leader crash could still erase.
-
-This is single-leader replication, the same as a database with replicas: producers and consumers are its clients,
-leader and followers are how it stores data. Followers fetch from the leader the same way consumers do, but they
-keep a copy instead of processing the message.
-
-</details>
 
 ### Consumer reads — which broker serves them?
 <details><summary>Show answer</summary>
