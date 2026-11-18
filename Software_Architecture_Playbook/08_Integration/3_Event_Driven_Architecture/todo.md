@@ -1,5 +1,22 @@
 ## 
 
+## Messages that always fail
+
+- One message fails every time you handle it. What happens to the messages behind it?
+- How do you tell a message that will never work from one that failed because the DB was down for a second?
+- Where do messages that keep failing go, and who looks at them?
+- You fixed the bug. How do you handle the failed messages again safely?
+
+### Where and when
+
+- Where along its way can a message get lost?
+- When is it fine to lose a message?
+
+### Sender
+
+- The sender doesn't wait for the broker to confirm. What can be lost?
+- The sender sends in the background and only logs failures in a callback. What happens to a failed message?
+
 ### What is an event-driven architecture?
 <details><summary>Show answer</summary>
 

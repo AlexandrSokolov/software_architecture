@@ -4,8 +4,24 @@ Most of Release It! is about integration points: timeouts, circuit breakers, bul
 Nygard himself calls integration points the top killer of systems.
 ##
 
+- How many times do you retry, and how long do you wait between tries?
 
 
+## 6 Reconciliation
+### Detect
+
+- How do you notice that events are missing before a customer tells you?
+- Each sender numbers its events in order. Which losses does a gap reveal, and which does it miss?
+- Every night you compare your data with the sender's data. What do you compare, and how do you avoid
+  pulling everything?
+
+### Recover
+
+- Your endpoint was down for three hours and the sender gave up retrying. How do you get the missed events back?
+- If events can be lost anyway, why use them at all instead of only the nightly check?
+
+
+## 
 ### A payment call times out — safe to retry?
 <details><summary>Show answer</summary>
 

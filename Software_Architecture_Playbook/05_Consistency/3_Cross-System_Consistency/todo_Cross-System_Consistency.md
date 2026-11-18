@@ -98,6 +98,8 @@ the event.
 
 ## 6. Multi-step business transactions across services
 
+sagas stay in 08/5_Microservices_and_Sagas
+
 - [ ] **Saga:** sequence of local transactions + compensations; orchestration vs choreography.
 - [ ] Compensation is not rollback: semantic undo, can itself fail, some steps can't be undone (pivot step).
 - [ ] Lack of isolation in sagas → anomalies (lost updates, dirty reads) and countermeasures: semantic lock,
@@ -107,7 +109,9 @@ the event.
 
 ## 7. Read side across systems
 
+CQRS lag goes to 08/3_Event_Driven_Architecture (replay file)
 - [ ] Read models / CQRS projections lag behind the write side; read-your-writes across services.
+cache + DB goes to 10_Architecture_Traps
 - [ ] Cache + DB as a dual write: invalidate vs update, stale cache → link `09_Architecture_Traps`.
 
 ---
