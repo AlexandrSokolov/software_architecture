@@ -14,10 +14,10 @@ or when the feed is read?
 <details><summary>Show answer</summary>
 
 **Verdict:** both — push for normal users, pull for celebrities above a follower threshold, merge at read time
-([hybrid](../Software_Architecture_Playbook/03_Data_Systems/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#celebrities-and-normal-users--one-approach-for-both)).
+([hybrid](../Software_Architecture_Playbook/04_Data_Layer/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#celebrities-and-normal-users--one-approach-for-both)).
 
 **Reasoning** — each of the
-[two load numbers](../Software_Architecture_Playbook/03_Data_Systems/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#which-load-numbers-decide-the-timeline-design)
+[two load numbers](../Software_Architecture_Playbook/04_Data_Layer/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#which-load-numbers-decide-the-timeline-design)
 moves the work one way:
 - **Read/post ratio is huge** (about 140 to 1) → shift work to writes: precompute feeds for normal users.
 - **Followers per user has extreme outliers** → shift work back to reads for them: pull celebrity posts at read time
@@ -53,7 +53,7 @@ then replica lag.
     + time to write the mailboxes. 5 minutes means jobs are waiting.
 - **Queue backlog** — typical cause: a huge job ahead of everyone. An account that just crossed the follower
   threshold, or a threshold set too high, puts millions of mailbox writes in front of all other posts
-  ([celebrity problem](../Software_Architecture_Playbook/03_Data_Systems/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#one-user-30-million-followers--what-breaks)).
+  ([celebrity problem](../Software_Architecture_Playbook/04_Data_Layer/2_Nonfunctional_Requirements/3.2.8_Read_vs_Write_Trade-Off.md#one-user-30-million-followers--what-breaks)).
 - **Replica lag** — something reads from a database replica that has fallen behind: the workers (they don't see the
   new post or the current follower list yet), or the feed (the mailbox has the post ID, but the replica doesn't have
   the post, so it is skipped until the replica catches up).
