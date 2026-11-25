@@ -1234,7 +1234,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.tipico.demo.logintracking</groupId>
+		<groupId>com.xxxxx.demo.logintracking</groupId>
 		<artifactId>login-tracking-parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath/>
@@ -1287,10 +1287,10 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 
 ===== END FILE : login-api/pom.xml =====
 
-===== BEGIN FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/dto/LoginEvent.java =====
-package com.tipico.demo.logintracking.api.dto;
+===== BEGIN FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/dto/LoginEvent.java =====
+package com.xxxxx.demo.logintracking.api.dto;
 
-import com.tipico.demo.logintracking.api.validation.IpAddress;
+import com.xxxxx.demo.logintracking.api.validation.IpAddress;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -1314,10 +1314,10 @@ public record LoginEvent(
   }
 }
 
-===== END FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/dto/LoginEvent.java =====
+===== END FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/dto/LoginEvent.java =====
 
-===== BEGIN FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/dto/LoginTrackingResult.java =====
-package com.tipico.demo.logintracking.api.dto;
+===== BEGIN FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/dto/LoginTrackingResult.java =====
+package com.xxxxx.demo.logintracking.api.dto;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -1347,12 +1347,12 @@ public record LoginTrackingResult(
   }
 }
 
-===== END FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/dto/LoginTrackingResult.java =====
+===== END FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/dto/LoginTrackingResult.java =====
 
-===== BEGIN FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/TrackLoginApi.java =====
-package com.tipico.demo.logintracking.api;
+===== BEGIN FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/TrackLoginApi.java =====
+package com.xxxxx.demo.logintracking.api;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
@@ -1367,10 +1367,10 @@ public interface TrackLoginApi {
   void trackLogin(@Valid @RequestBody LoginEvent event);
 }
 
-===== END FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/TrackLoginApi.java =====
+===== END FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/TrackLoginApi.java =====
 
-===== BEGIN FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/validation/IpAddress.java =====
-package com.tipico.demo.logintracking.api.validation;
+===== BEGIN FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/validation/IpAddress.java =====
+package com.xxxxx.demo.logintracking.api.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
@@ -1400,10 +1400,10 @@ public @interface IpAddress {
   Class<? extends Payload>[] payload() default {};
 }
 
-===== END FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/validation/IpAddress.java =====
+===== END FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/validation/IpAddress.java =====
 
-===== BEGIN FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/validation/IpAddressValidator.java =====
-package com.tipico.demo.logintracking.api.validation;
+===== BEGIN FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/validation/IpAddressValidator.java =====
+package com.xxxxx.demo.logintracking.api.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
@@ -1427,10 +1427,10 @@ public class IpAddressValidator implements ConstraintValidator<IpAddress, String
   }
 }
 
-===== END FILE : login-api/src/main/java/com/tipico/demo/logintracking/api/validation/IpAddressValidator.java =====
+===== END FILE : login-api/src/main/java/com/xxxxx/demo/logintracking/api/validation/IpAddressValidator.java =====
 
-===== BEGIN FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/dto/LoginEventSerializationTest.java =====
-package com.tipico.demo.logintracking.api.dto;
+===== BEGIN FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/dto/LoginEventSerializationTest.java =====
+package com.xxxxx.demo.logintracking.api.dto;
 
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -1486,10 +1486,10 @@ class LoginEventSerializationTest {
   }
 }
 
-===== END FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/dto/LoginEventSerializationTest.java =====
+===== END FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/dto/LoginEventSerializationTest.java =====
 
-===== BEGIN FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/dto/LoginTrackingResultSerializationTest.java =====
-package com.tipico.demo.logintracking.api.dto;
+===== BEGIN FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/dto/LoginTrackingResultSerializationTest.java =====
+package com.xxxxx.demo.logintracking.api.dto;
 
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -1542,10 +1542,10 @@ class LoginTrackingResultSerializationTest {
   }
 }
 
-===== END FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/dto/LoginTrackingResultSerializationTest.java =====
+===== END FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/dto/LoginTrackingResultSerializationTest.java =====
 
-===== BEGIN FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/validation/IpAddressValidatorTest.java =====
-package com.tipico.demo.logintracking.api.validation;
+===== BEGIN FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/validation/IpAddressValidatorTest.java =====
+package com.xxxxx.demo.logintracking.api.validation;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -1594,7 +1594,7 @@ class IpAddressValidatorTest {
   }
 }
 
-===== END FILE : login-api/src/test/java/com/tipico/demo/logintracking/api/validation/IpAddressValidatorTest.java =====
+===== END FILE : login-api/src/test/java/com/xxxxx/demo/logintracking/api/validation/IpAddressValidatorTest.java =====
 
 ===== BEGIN FILE : login-processing-service/Dockerfile =====
 # Override if needed: docker build --build-arg JAVA_VERSION=21 .
@@ -2171,7 +2171,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.tipico.demo.logintracking</groupId>
+		<groupId>com.xxxxx.demo.logintracking</groupId>
 		<artifactId>login-tracking-parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath/>
@@ -2187,7 +2187,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 	<dependencies>
 
 		<dependency>
-			<groupId>com.tipico.demo.logintracking</groupId>
+			<groupId>com.xxxxx.demo.logintracking</groupId>
 			<artifactId>login-api</artifactId>
 			<version>1.0.0</version>
 		</dependency>
@@ -2300,10 +2300,10 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 
 ===== END FILE : login-processing-service/pom.xml =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientConfig.java =====
-package com.tipico.demo.logintracking.processing.client;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientConfig.java =====
+package com.xxxxx.demo.logintracking.processing.client;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder;
@@ -2432,13 +2432,13 @@ public class TrackLoginClientConfig {
   }
 
 }
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientConfig.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientConfig.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/client/TrackLoginClient.java =====
-package com.tipico.demo.logintracking.processing.client;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClient.java =====
+package com.xxxxx.demo.logintracking.processing.client;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.stereotype.Service;
@@ -2477,10 +2477,10 @@ public class TrackLoginClient {
     trackLoginApi.trackLogin(event);
   }
 }
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/client/TrackLoginClient.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClient.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/listener/KafkaListenerConfig.java =====
-package com.tipico.demo.logintracking.processing.listener;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/listener/KafkaListenerConfig.java =====
+package com.xxxxx.demo.logintracking.processing.listener;
 
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
@@ -2549,13 +2549,13 @@ public class KafkaListenerConfig {
   }
 }
 
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/listener/KafkaListenerConfig.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/listener/KafkaListenerConfig.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/listener/LoginEventListener.java =====
-package com.tipico.demo.logintracking.processing.listener;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListener.java =====
+package com.xxxxx.demo.logintracking.processing.listener;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.processing.service.LoginTrackingService;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.processing.service.LoginTrackingService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -2584,10 +2584,10 @@ public class LoginEventListener {
   }
 }
 
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/listener/LoginEventListener.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListener.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/LoginProcessingServiceApplication.java =====
-package com.tipico.demo.logintracking.processing;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/LoginProcessingServiceApplication.java =====
+package com.xxxxx.demo.logintracking.processing;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -2601,12 +2601,12 @@ public class LoginProcessingServiceApplication {
 
 }
 
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/LoginProcessingServiceApplication.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/LoginProcessingServiceApplication.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisher.java =====
-package com.tipico.demo.logintracking.processing.publisher;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisher.java =====
+package com.xxxxx.demo.logintracking.processing.publisher;
 
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -2642,10 +2642,10 @@ public class TrackingResultPublisher {
   }
 }
 
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisher.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisher.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/security/SecurityConfig.java =====
-package com.tipico.demo.logintracking.processing.security;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/security/SecurityConfig.java =====
+package com.xxxxx.demo.logintracking.processing.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -2684,16 +2684,16 @@ public class SecurityConfig {
   }
 }
 
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/security/SecurityConfig.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/security/SecurityConfig.java =====
 
-===== BEGIN FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/service/LoginTrackingService.java =====
-package com.tipico.demo.logintracking.processing.service;
+===== BEGIN FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/service/LoginTrackingService.java =====
+package com.xxxxx.demo.logintracking.processing.service;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult;
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult.Result;
-import com.tipico.demo.logintracking.processing.client.TrackLoginClient;
-import com.tipico.demo.logintracking.processing.publisher.TrackingResultPublisher;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult.Result;
+import com.xxxxx.demo.logintracking.processing.client.TrackLoginClient;
+import com.xxxxx.demo.logintracking.processing.publisher.TrackingResultPublisher;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -2748,7 +2748,7 @@ public class LoginTrackingService {
     return Result.unsuccessful;
   }
 }
-===== END FILE : login-processing-service/src/main/java/com/tipico/demo/logintracking/processing/service/LoginTrackingService.java =====
+===== END FILE : login-processing-service/src/main/java/com/xxxxx/demo/logintracking/processing/service/LoginTrackingService.java =====
 
 ===== BEGIN FILE : login-processing-service/src/main/resources/application.yaml =====
 # login-processing-service: identity of the service and the list of its configuration files.
@@ -2926,7 +2926,7 @@ spring:
         # the value into LoginEvent. Side effect: no need for "trusted packages",
         # because the target type is defined by us, not by the sender.
         spring.json.use.type.headers: false
-        spring.json.value.default.type: com.tipico.demo.logintracking.api.dto.LoginEvent
+        spring.json.value.default.type: com.xxxxx.demo.logintracking.api.dto.LoginEvent
 
     producer:
       # Message key is the customerId as a string.
@@ -3071,10 +3071,10 @@ resilience4j:
         randomized-wait-factor: 0.5
 ===== END FILE : login-processing-service/src/main/resources/settings/timeouts.yaml =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginApiTest.java =====
-package com.tipico.demo.logintracking.processing.client;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginApiTest.java =====
+package com.xxxxx.demo.logintracking.processing.client;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -3086,7 +3086,7 @@ import org.wiremock.spring.ConfigureWireMock;
 import org.wiremock.spring.EnableWireMock;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.tipico.demo.logintracking.processing.TestData.*;
+import static com.xxxxx.demo.logintracking.processing.TestData.*;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
@@ -3147,13 +3147,13 @@ class TrackLoginApiTest {
   }
 }
 
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginApiTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginApiTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientTest.java =====
-package com.tipico.demo.logintracking.processing.client;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientTest.java =====
+package com.xxxxx.demo.logintracking.processing.client;
 
 import com.github.tomakehurst.wiremock.http.Fault;
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import org.junit.jupiter.api.BeforeEach;
@@ -3169,7 +3169,7 @@ import org.wiremock.spring.EnableWireMock;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.stubbing.Scenario.STARTED;
-import static com.tipico.demo.logintracking.processing.TestData.*;
+import static com.xxxxx.demo.logintracking.processing.TestData.*;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -3293,12 +3293,12 @@ class TrackLoginClientTest {
   }
 
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientTokenTimeoutTest.java =====
-package com.tipico.demo.logintracking.processing.client;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientTokenTimeoutTest.java =====
+package com.xxxxx.demo.logintracking.processing.client;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import java.net.SocketTimeoutException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -3313,9 +3313,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-import static com.tipico.demo.logintracking.processing.TestData.ACCESS_TOKEN;
-import static com.tipico.demo.logintracking.processing.TestData.TOKEN_PATH;
-import static com.tipico.demo.logintracking.processing.TestData.loginEvent;
+import static com.xxxxx.demo.logintracking.processing.TestData.ACCESS_TOKEN;
+import static com.xxxxx.demo.logintracking.processing.TestData.TOKEN_PATH;
+import static com.xxxxx.demo.logintracking.processing.TestData.loginEvent;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
@@ -3355,12 +3355,12 @@ class TrackLoginClientTokenTimeoutTest {
     verify(0, postRequestedFor(urlEqualTo(TrackLoginApi.PATH)));
   }
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/client/TrackLoginClientTokenTimeoutTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/client/TrackLoginClientTokenTimeoutTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/listener/LoginEventListenerIT.java =====
-package com.tipico.demo.logintracking.processing.listener;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListenerIT.java =====
+package com.xxxxx.demo.logintracking.processing.listener;
 
-import com.tipico.demo.logintracking.processing.service.LoginTrackingService;
+import com.xxxxx.demo.logintracking.processing.service.LoginTrackingService;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -3386,7 +3386,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
-import static com.tipico.demo.logintracking.processing.TestData.*;
+import static com.xxxxx.demo.logintracking.processing.TestData.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
@@ -3484,14 +3484,14 @@ class LoginEventListenerIT {
   }
 }
 
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/listener/LoginEventListenerIT.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListenerIT.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/listener/LoginEventListenerTest.java =====
-package com.tipico.demo.logintracking.processing.listener;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListenerTest.java =====
+package com.xxxxx.demo.logintracking.processing.listener;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.processing.TestData;
-import com.tipico.demo.logintracking.processing.service.LoginTrackingService;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.processing.TestData;
+import com.xxxxx.demo.logintracking.processing.service.LoginTrackingService;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
@@ -3513,13 +3513,13 @@ public class LoginEventListenerTest {
   }
 }
 
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/listener/LoginEventListenerTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/listener/LoginEventListenerTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/LoginProcessingEndToEndIT.java =====
-package com.tipico.demo.logintracking.processing;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/LoginProcessingEndToEndIT.java =====
+package com.xxxxx.demo.logintracking.processing;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
-import com.tipico.demo.logintracking.processing.client.TrackLoginClientConfig;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.processing.client.TrackLoginClientConfig;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -3553,7 +3553,7 @@ import java.util.UUID;
 import java.util.stream.StreamSupport;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static com.tipico.demo.logintracking.processing.TestData.*;
+import static com.xxxxx.demo.logintracking.processing.TestData.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.awaitility.Awaitility.await;
 
@@ -3685,10 +3685,10 @@ class LoginProcessingEndToEndIT {
     }
   }
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/LoginProcessingEndToEndIT.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/LoginProcessingEndToEndIT.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/LoginProcessingServiceApplicationTests.java =====
-package com.tipico.demo.logintracking.processing;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/LoginProcessingServiceApplicationTests.java =====
+package com.xxxxx.demo.logintracking.processing;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -3702,12 +3702,12 @@ class LoginProcessingServiceApplicationTests {
 
 }
 
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/LoginProcessingServiceApplicationTests.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/LoginProcessingServiceApplicationTests.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisherIT.java =====
-package com.tipico.demo.logintracking.processing.publisher;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisherIT.java =====
+package com.xxxxx.demo.logintracking.processing.publisher;
 
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -3727,7 +3727,7 @@ import org.testcontainers.kafka.KafkaContainer;
 import java.util.List;
 import java.util.Map;
 
-import static com.tipico.demo.logintracking.processing.TestData.*;
+import static com.xxxxx.demo.logintracking.processing.TestData.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
@@ -3770,19 +3770,19 @@ public class TrackingResultPublisherIT {
   }
 }
 
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisherIT.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisherIT.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisherTest.java =====
-package com.tipico.demo.logintracking.processing.publisher;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisherTest.java =====
+package com.xxxxx.demo.logintracking.processing.publisher;
 
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult;
 import org.junit.jupiter.api.Test;
 import org.springframework.kafka.core.KafkaTemplate;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 
-import static com.tipico.demo.logintracking.processing.TestData.loginEvent;
+import static com.xxxxx.demo.logintracking.processing.TestData.loginEvent;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
@@ -3823,22 +3823,22 @@ class TrackingResultPublisherTest {
       .hasCause(brokerFailure);
   }
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/publisher/TrackingResultPublisherTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/publisher/TrackingResultPublisherTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/service/LoginTrackingServiceTest.java =====
-package com.tipico.demo.logintracking.processing.service;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/service/LoginTrackingServiceTest.java =====
+package com.xxxxx.demo.logintracking.processing.service;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult;
-import com.tipico.demo.logintracking.api.dto.LoginTrackingResult.Result;
-import com.tipico.demo.logintracking.processing.client.TrackLoginClient;
-import com.tipico.demo.logintracking.processing.publisher.TrackingResultPublisher;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult;
+import com.xxxxx.demo.logintracking.api.dto.LoginTrackingResult.Result;
+import com.xxxxx.demo.logintracking.processing.client.TrackLoginClient;
+import com.xxxxx.demo.logintracking.processing.publisher.TrackingResultPublisher;
 import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.client.RestClientException;
 
-import static com.tipico.demo.logintracking.processing.TestData.loginEvent;
+import static com.xxxxx.demo.logintracking.processing.TestData.loginEvent;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -3895,12 +3895,12 @@ class LoginTrackingServiceTest {
     verify(publisher).publish(LoginTrackingResult.of(event, Result.unsuccessful));
   }
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/service/LoginTrackingServiceTest.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/service/LoginTrackingServiceTest.java =====
 
-===== BEGIN FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/TestData.java =====
-package com.tipico.demo.logintracking.processing;
+===== BEGIN FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/TestData.java =====
+package com.xxxxx.demo.logintracking.processing;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 
@@ -3998,7 +3998,7 @@ public final class TestData {
     authorizedClients.removeAuthorizedClient(registrationId, ANONYMOUS_PRINCIPAL);
   }
 }
-===== END FILE : login-processing-service/src/test/java/com/tipico/demo/logintracking/processing/TestData.java =====
+===== END FILE : login-processing-service/src/test/java/com/xxxxx/demo/logintracking/processing/TestData.java =====
 
 ===== BEGIN FILE : login-processing-service/src/test/resources/config/application.yaml =====
 # Test-only values for environment-specific settings.
@@ -4563,7 +4563,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>com.tipico.demo.logintracking</groupId>
+  <groupId>com.xxxxx.demo.logintracking</groupId>
   <artifactId>login-tracking-parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
@@ -6119,7 +6119,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.tipico.demo.logintracking</groupId>
+    <groupId>com.xxxxx.demo.logintracking</groupId>
     <artifactId>login-tracking-parent</artifactId>
     <version>1.0.0</version>
     <relativePath/> <!-- lookup parent from repository -->
@@ -6134,7 +6134,7 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
   <dependencies>
     <!-- Shared contract: TrackLoginApi (path) and LoginEvent DTO -->
     <dependency>
-      <groupId>com.tipico.demo.logintracking</groupId>
+      <groupId>com.xxxxx.demo.logintracking</groupId>
       <artifactId>login-api</artifactId>
       <version>1.0.0</version>
     </dependency>
@@ -6227,10 +6227,10 @@ distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-mav
 </project>
 ===== END FILE : track-login-service/pom.xml =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/persistence/LoginEventEntity.java =====
-package com.tipico.demo.logintracking.track.persistence;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventEntity.java =====
+package com.xxxxx.demo.logintracking.track.persistence;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -6337,10 +6337,10 @@ public class LoginEventEntity implements Persistable<UUID> {
     isNew = false;
   }
 }
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/persistence/LoginEventEntity.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventEntity.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/persistence/LoginEventRepository.java =====
-package com.tipico.demo.logintracking.track.persistence;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventRepository.java =====
+package com.xxxxx.demo.logintracking.track.persistence;
 
 import org.springframework.data.repository.Repository;
 
@@ -6358,18 +6358,18 @@ public interface LoginEventRepository extends Repository<LoginEventEntity, UUID>
    */
   LoginEventEntity save(LoginEventEntity entity);
 }
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/persistence/LoginEventRepository.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventRepository.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/error/package-info.java =====
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/error/package-info.java =====
 /**
  * Null-safety as in Spring Framework 7: everything is non-null unless annotated with @Nullable.
  */
 @org.jspecify.annotations.NullMarked
-package com.tipico.demo.logintracking.track.rest.error;
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/error/package-info.java =====
+package com.xxxxx.demo.logintracking.track.rest.error;
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/error/package-info.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/error/RestExceptionHandler.java =====
-package com.tipico.demo.logintracking.track.rest.error;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/error/RestExceptionHandler.java =====
+package com.xxxxx.demo.logintracking.track.rest.error;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatusCode;
@@ -6414,12 +6414,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
   }
 }
 
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/error/RestExceptionHandler.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/error/RestExceptionHandler.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/security/SecurityConfig.java =====
-package com.tipico.demo.logintracking.track.rest.security;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/security/SecurityConfig.java =====
+package com.xxxxx.demo.logintracking.track.rest.security;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -6457,14 +6457,14 @@ public class SecurityConfig {
   }
 }
 
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/security/SecurityConfig.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/security/SecurityConfig.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/TrackLoginController.java =====
-package com.tipico.demo.logintracking.track.rest;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/TrackLoginController.java =====
+package com.xxxxx.demo.logintracking.track.rest;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.track.service.LoginTrackingService;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.track.service.LoginTrackingService;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -6487,14 +6487,14 @@ public class TrackLoginController implements TrackLoginApi {
   }
 }
 
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/rest/TrackLoginController.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/rest/TrackLoginController.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/service/LoginTrackingService.java =====
-package com.tipico.demo.logintracking.track.service;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/service/LoginTrackingService.java =====
+package com.xxxxx.demo.logintracking.track.service;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
-import com.tipico.demo.logintracking.track.persistence.LoginEventEntity;
-import com.tipico.demo.logintracking.track.persistence.LoginEventRepository;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.track.persistence.LoginEventEntity;
+import com.xxxxx.demo.logintracking.track.persistence.LoginEventRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.exception.ConstraintViolationException;
@@ -6545,10 +6545,10 @@ public class LoginTrackingService {
   }
 }
 
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/service/LoginTrackingService.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/service/LoginTrackingService.java =====
 
-===== BEGIN FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/TrackLoginServiceApplication.java =====
-package com.tipico.demo.logintracking.track;
+===== BEGIN FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/TrackLoginServiceApplication.java =====
+package com.xxxxx.demo.logintracking.track;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6560,7 +6560,7 @@ public class TrackLoginServiceApplication {
     SpringApplication.run(TrackLoginServiceApplication.class, args);
   }
 }
-===== END FILE : track-login-service/src/main/java/com/tipico/demo/logintracking/track/TrackLoginServiceApplication.java =====
+===== END FILE : track-login-service/src/main/java/com/xxxxx/demo/logintracking/track/TrackLoginServiceApplication.java =====
 
 ===== BEGIN FILE : track-login-service/src/main/resources/application.yaml =====
 spring:
@@ -6720,8 +6720,8 @@ management:
 
 ===== END FILE : track-login-service/src/main/resources/settings/actuator.yaml =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LiquibaseSchemaIT.java =====
-package com.tipico.demo.logintracking.track.persistence;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LiquibaseSchemaIT.java =====
+package com.xxxxx.demo.logintracking.track.persistence;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
@@ -6787,18 +6787,18 @@ class LiquibaseSchemaIT {
 
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LiquibaseSchemaIT.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LiquibaseSchemaIT.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LoginEventEntityTest.java =====
-package com.tipico.demo.logintracking.track.persistence;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventEntityTest.java =====
+package com.xxxxx.demo.logintracking.track.persistence;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
 import java.util.UUID;
 
-import static com.tipico.demo.logintracking.track.TestData.*;
+import static com.xxxxx.demo.logintracking.track.TestData.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -6827,12 +6827,12 @@ class LoginEventEntityTest {
   }
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LoginEventEntityTest.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventEntityTest.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LoginEventRepositoryIT.java =====
-package com.tipico.demo.logintracking.track.persistence;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventRepositoryIT.java =====
+package com.xxxxx.demo.logintracking.track.persistence;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 import jakarta.validation.ConstraintViolationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6852,7 +6852,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import java.util.Map;
 import java.util.UUID;
 
-import static com.tipico.demo.logintracking.track.TestData.loginEvent;
+import static com.xxxxx.demo.logintracking.track.TestData.loginEvent;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -6921,14 +6921,14 @@ class LoginEventRepositoryIT {
     assertThat(jdbc.queryForObject("select count(*) from login_event", Integer.class)).isZero();
   }
 }
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/persistence/LoginEventRepositoryIT.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/persistence/LoginEventRepositoryIT.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/rest/TrackLoginControllerTest.java =====
-package com.tipico.demo.logintracking.track.rest;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/rest/TrackLoginControllerTest.java =====
+package com.xxxxx.demo.logintracking.track.rest;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
-import com.tipico.demo.logintracking.track.rest.security.SecurityConfig;
-import com.tipico.demo.logintracking.track.service.LoginTrackingService;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.track.rest.security.SecurityConfig;
+import com.xxxxx.demo.logintracking.track.service.LoginTrackingService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -6947,7 +6947,7 @@ import org.springframework.test.web.servlet.request.RequestPostProcessor;
 
 import java.util.stream.Stream;
 
-import static com.tipico.demo.logintracking.track.TestData.*;
+import static com.xxxxx.demo.logintracking.track.TestData.*;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -7069,12 +7069,12 @@ class TrackLoginControllerTest {
   }
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/rest/TrackLoginControllerTest.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/rest/TrackLoginControllerTest.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/service/LoginTrackingServiceTest.java =====
-package com.tipico.demo.logintracking.track.service;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/service/LoginTrackingServiceTest.java =====
+package com.xxxxx.demo.logintracking.track.service;
 
-import com.tipico.demo.logintracking.track.persistence.LoginEventRepository;
+import com.xxxxx.demo.logintracking.track.persistence.LoginEventRepository;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -7082,7 +7082,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.sql.SQLException;
 import java.util.UUID;
 
-import static com.tipico.demo.logintracking.track.TestData.loginEvent;
+import static com.xxxxx.demo.logintracking.track.TestData.loginEvent;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
@@ -7137,12 +7137,12 @@ class LoginTrackingServiceTest {
   }
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/service/LoginTrackingServiceTest.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/service/LoginTrackingServiceTest.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/TestData.java =====
-package com.tipico.demo.logintracking.track;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/TestData.java =====
+package com.xxxxx.demo.logintracking.track;
 
-import com.tipico.demo.logintracking.api.dto.LoginEvent;
+import com.xxxxx.demo.logintracking.api.dto.LoginEvent;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -7188,12 +7188,12 @@ public final class TestData {
       """.formatted(CUSTOMER_ID, USERNAME, CLIENT, TIMESTAMP, MESSAGE_ID, CUSTOMER_IP);
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/TestData.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/TestData.java =====
 
-===== BEGIN FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/TrackLoginServiceEndToEndIT.java =====
-package com.tipico.demo.logintracking.track;
+===== BEGIN FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/TrackLoginServiceEndToEndIT.java =====
+package com.xxxxx.demo.logintracking.track;
 
-import com.tipico.demo.logintracking.api.TrackLoginApi;
+import com.xxxxx.demo.logintracking.api.TrackLoginApi;
 import com.jayway.jsonpath.JsonPath;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -7220,7 +7220,7 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 
-import static com.tipico.demo.logintracking.track.TestData.*;
+import static com.xxxxx.demo.logintracking.track.TestData.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.when;
@@ -7344,7 +7344,7 @@ class TrackLoginServiceEndToEndIT {
   }
 }
 
-===== END FILE : track-login-service/src/test/java/com/tipico/demo/logintracking/track/TrackLoginServiceEndToEndIT.java =====
+===== END FILE : track-login-service/src/test/java/com/xxxxx/demo/logintracking/track/TrackLoginServiceEndToEndIT.java =====
 
 ===== BEGIN FILE : track-login-service/src/test/resources/config/application.yaml =====
 server:
